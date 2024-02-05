@@ -26,14 +26,14 @@ CREATE TABLE `agenda` (
   `horas` time NOT NULL,
   `datas` date NOT NULL,
   `clienteID` int(11) NOT NULL,
-  `barbeiro` varchar(25) NOT NULL,
+  `barbeiroID` int(11) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `status` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `agenda_ibfk_2` (`barbeiro`),
+  KEY `agenda_ibfk_2` (`barbeiroID`),
   KEY `agenda_ibfk_1` (`clienteID`),
   CONSTRAINT `agenda_ibfk_1` FOREIGN KEY (`clienteID`) REFERENCES `cliente` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `agenda_ibfk_2` FOREIGN KEY (`barbeiro`) REFERENCES `barbeiro` (`nome`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `agenda_ibfk_2` FOREIGN KEY (`barbeiroID`) REFERENCES `barbeiro` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -71,7 +71,7 @@ CREATE TABLE `barbeiro` (
 
 LOCK TABLES `barbeiro` WRITE;
 /*!40000 ALTER TABLE `barbeiro` DISABLE KEYS */;
-INSERT INTO `barbeiro` VALUES ('bruno','diasbruno00@gmail.com.br','3188460968','Degrade',1),('bruno dias','mariana@gmail.com','3698595965','Maquina 0',5),('joao','joao@gmail.com','3188460968','Degrade',4),('jose','mariana@gmail.com','3188460964','Degrade',2);
+INSERT INTO `barbeiro` VALUES ('artur','arturoliveira@outlook.com.br','3188460968','Degrade',1),('bruno dias','mariana@gmail.com','3698595965','Maquina 0',2),('joao','joao@gmail.com','3188460968','Degrade',3),('jose','mariana@gmail.com','3188460964','Degrade',4);
 /*!40000 ALTER TABLE `barbeiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -99,7 +99,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES ('roberto',50,'roberto@gmail.com',53,'36985959656','Degrade'),('marianas',52,'diasbruno00@gmail.com',54,'3188460967','Degrade');
+INSERT INTO `cliente` VALUES ('roberto',50,'roberto@gmail.com',1,'36985959656','Degrade'),('marianas',52,'diasbruno00@gmail.com',2,'3188460967','Degrade');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
